@@ -1,5 +1,5 @@
 {
-  "sumber": "https://… (tautan dataset dari kartu Kasus tim di Workbench)",
-  "berkas": ["data/latih.csv"],
-  "catatan": "Isi pada Sprint 0: versi/tanggal unduh, jumlah baris, dan perubahan (bila ada). Berkas data sendiri tidak di-commit."
+  "sumber": "Rekaman tim sendiri, meja uji, kamera 0.1 s (kartu kasus: https://github.com/sains-data/capstone-dl-2026-starter)",
+  "berkas": ["data/pose.npz", "data/label.csv"],
+  "catatan": "Diisi Sprint 0. pose.npz: satu kunci per kondisi '<partisipan>__<postur>__<ulangan>' (contoh P01__tegak__1), array [80, J, 3] float32 (10 fps x 8 s). label.csv: kolom kondisi, partisipan, postur, ulangan, y_postur, rula_1, rula_2. Format lengkap: docstring src/protokol/data.py. Rekaman: Jum 6 Nov 15.00-16.00, operator A, P01-P08, 5 postur x 2 ulangan. Berkas data tidak di-commit; verifikasi data_hash setelah unduh dari Drive tim."
 }
