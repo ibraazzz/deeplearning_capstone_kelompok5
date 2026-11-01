@@ -1,4 +1,4 @@
-# Capstone Deep Learning — starter tim
+# Capstone Deep Learning — starter kelompok 5
 
 Template repositori tim untuk **Capstone Deep Learning: Satu Kasus, Lima Keluarga Model**
 (Program Studi Sains Data ITERA, Data Science Workbench). Satu tim = satu repositori yang
