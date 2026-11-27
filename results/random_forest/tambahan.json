@@ -1,0 +1,89 @@
+{
+  "jalur": "random_forest",
+  "seed": 1,
+  "dipilih": "rf",
+  "calon": {
+    "rf": {
+      "val_f1_makro": 0.6133,
+      "val_acc": 0.625,
+      "val_f1_rinci": {
+        "tegak": 0.5714,
+        "membungkuk": 0.6667,
+        "bersandar": 0.4,
+        "condong ke kiri": 0.5714,
+        "condong ke kanan": 0.8571
+      },
+      "waktu_latih_s": 0.26
+    },
+    "svm": {
+      "val_f1_makro": 0.5095,
+      "val_acc": 0.5625,
+      "val_f1_rinci": {
+        "tegak": 0.5,
+        "membungkuk": 0.8571,
+        "bersandar": 0.0,
+        "condong ke kiri": 0.3333,
+        "condong ke kanan": 0.8571
+      },
+      "waktu_latih_s": 0.0
+    },
+    "lda": {
+      "val_f1_makro": 0.4267,
+      "val_acc": 0.5,
+      "val_f1_rinci": {
+        "tegak": 0.0,
+        "membungkuk": 0.8,
+        "bersandar": 0.0,
+        "condong ke kiri": 0.6667,
+        "condong ke kanan": 0.6667
+      },
+      "waktu_latih_s": 0.0
+    }
+  },
+  "fitur": "sudut sendi (6×4=24) + kecepatan titik pose (33×3=99) + statistik posisi (33×2×2=132) = 255 total fitur",
+  "test_f1_makro": 0.6788,
+  "test_f1_rinci": {
+    "tegak": 0.6667,
+    "membungkuk": 0.7273,
+    "bersandar": 0.6667,
+    "condong ke kiri": 0.6667,
+    "condong ke kanan": 0.6667
+  },
+  "confusion_matrix_test": [
+    [
+      2,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      4,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      2
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "metrik": {
+    "val_acc": 0.625,
+    "val_macro_f1": 0.6133,
+    "test_acc": 0.6875,
+    "test_macro_f1": 0.6787878787878787
+  },
+  "seed": 1,
+  "perangkat": "cpu laptop",
+  "model": "non-dl-rf",
+  "n_val": 16,
+  "n_test": 16,
+  "durasi_detik": 2.2
+}
