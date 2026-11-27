@@ -1,3 +1,25 @@
-numpy>=1.26
-torch>=2.2
-torchvision>=0.17
+# Tim 05 – Penilaian Postur Duduk (Deep Learning Capstone)
+# Diuji pada Python 3.10.9 | Windows 10/11
+# Pasang: pip install -r requirements.txt
+
+# --- Core numerical ---
+numpy>=1.24,<3.0
+pandas>=2.0
+
+# --- Computer Vision & Pose Extraction ---
+opencv-python>=4.8
+mediapipe>=0.10.9
+
+# --- Deep Learning ---
+torch>=2.0
+# (torchvision opsional, tidak dipakai langsung di pipeline pose)
+
+# --- Machine Learning (baseline) ---
+scikit-learn>=1.3
+
+# --- Visualization ---
+matplotlib>=3.7
+seaborn>=0.12
+
+# --- Utilities ---
+tqdm>=4.65

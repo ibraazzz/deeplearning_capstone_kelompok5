@@ -1,4 +1,4 @@
-# dataset kasus tim tidak di-commit; hanya manifesnya
+﻿# dataset kasus tim tidak di-commit; hanya manifesnya
 data/*
 !data/MANIFEST.json
 *.pt
@@ -8,3 +8,12 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 # prediksi boleh di-commit (kecil); checkpoint model tidak
+
+!data/processed/
+!data/processed/**
+dataset_gambar/
+data_label/
+*.tar
+*.tar.gz
+*.task
+
