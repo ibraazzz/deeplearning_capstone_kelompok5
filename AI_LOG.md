@@ -6,4 +6,4 @@ melainkan "mengerti atau tidak" — isi kolom terakhir dengan apa yang Anda ubah
 
 | Tanggal | Siapa (NIM) | Alat | Untuk apa | Apa yang diubah dari keluarannya |
 |---|---|---|---|---|
-| 2026-11-03 | 12345678 | Copilot | kerangka DataLoader | ganti normalisasi, tambah seed worker |
+| 2026-11-27| 122450100 | Gemini | kerangka preprocessing & training 1D-CNN | perbaikan offset `k+2`, split *subject-independent*, dan kriteria *early stopping* F1-Macro|
