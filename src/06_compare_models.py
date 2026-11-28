@@ -9,7 +9,7 @@ Jalankan setelah semua anggota tim selesai melatih model masing-masing.
 
 Jalur yang dibandingkan:
   - results/cnn/           (CNN – anggota saya)
-  - results/rnn/           (RNN – anggota RNN)
+  - results/rnn/           (RNN – anggota RNN, dipisah LSTM & GRU)
   - results/transformer/   (Transformer – anggota Transformer)
   - results/ae/            (Autoencoder – anggota AE)
   - results/random_forest/ (Baseline non-DL)
@@ -36,9 +36,11 @@ if str(AKAR) not in sys.path:
     sys.path.insert(0, str(AKAR))
 RESULTS_DIR = AKAR / "results"
 
+# PERBAIKAN: Menambahkan entri 'lstm' dan 'gru' dengan suffix masing-masing
 JALUR_MODEL = {
     "cnn":           {"nama": "1D-CNN",       "folder": "cnn"},
-    "rnn":           {"nama": "RNN (LSTM)",    "folder": "rnn"},
+    "lstm":          {"nama": "RNN (LSTM)",    "folder": "rnn", "suffix": "_lstm"},
+    "gru":           {"nama": "RNN (GRU)",     "folder": "rnn", "suffix": "_gru"},
     "transformer":   {"nama": "Transformer",   "folder": "transformer"},
     "ae":            {"nama": "Autoencoder",   "folder": "ae"},
     "random_forest": {"nama": "Random Forest", "folder": "random_forest"},
@@ -47,18 +49,18 @@ JALUR_MODEL = {
 KELAS = ["tegak", "membungkuk", "bersandar", "condong ke kiri", "condong ke kanan"]
 
 
-def baca_metrics(folder: Path) -> dict | None:
-    """Baca metrics.json dari folder jalur."""
-    p = folder / "metrics.json"
+def baca_metrics(folder: Path, suffix: str = "") -> dict | None:
+    """Baca metrics.json dari folder jalur (dengan atau tanpa suffix)."""
+    p = folder / f"metrics{suffix}.json"
     if not p.exists():
         return None
     with open(p, encoding="utf-8") as f:
         return json.load(f)
 
 
-def baca_tambahan(folder: Path) -> dict | None:
+def baca_tambahan(folder: Path, suffix: str = "") -> dict | None:
     """Baca tambahan.json dari folder jalur."""
-    p = folder / "tambahan.json"
+    p = folder / f"tambahan{suffix}.json"
     if not p.exists():
         return None
     with open(p, encoding="utf-8") as f:
@@ -71,11 +73,13 @@ def bandingkan_model() -> None:
     baris = []
     for key, info in JALUR_MODEL.items():
         folder = RESULTS_DIR / info["folder"]
-        metrics = baca_metrics(folder)
-        tambahan = baca_tambahan(folder)
+        suffix = info.get("suffix", "")
+        
+        metrics = baca_metrics(folder, suffix)
+        tambahan = baca_tambahan(folder, suffix)
 
         if metrics is None:
-            print(f"  [{key:14s}] ⚠ metrics.json belum ada (model belum selesai dilatih)")
+            print(f"  [{key:14s}] ⚠ metrics{suffix}.json belum ada (model belum selesai dilatih)")
             baris.append({
                 "jalur": key,
                 "nama_model": info["nama"],
@@ -89,10 +93,11 @@ def bandingkan_model() -> None:
             })
             continue
 
-        m = metrics.get("metrik", {})
-        val_f1 = m.get("val_macro_f1", m.get("val_f1", None))
+        # Cek dulu apakah ada key "metrik" (format lama) atau langsung (format baru)
+        m = metrics.get("metrik", metrics)
+        val_f1 = m.get("val_macro_f1", m.get("val_f1_macro", m.get("val_f1", None)))
         val_acc = m.get("val_acc", None)
-        test_f1 = m.get("test_macro_f1", m.get("test_f1", None))
+        test_f1 = m.get("test_macro_f1", m.get("test_f1_macro", m.get("test_f1", None)))
         test_acc = m.get("test_acc", None)
 
         # Dari tambahan.json
@@ -156,7 +161,8 @@ def bandingkan_model() -> None:
 
     for key, info in JALUR_MODEL.items():
         folder = RESULTS_DIR / info["folder"]
-        tambahan = baca_tambahan(folder)
+        suffix = info.get("suffix", "")
+        tambahan = baca_tambahan(folder, suffix)
         if tambahan and "test_f1_rinci" in tambahan:
             rinci = tambahan["test_f1_rinci"]
             vals = [f"{rinci.get(k, 0):.3f}" for k in KELAS]
