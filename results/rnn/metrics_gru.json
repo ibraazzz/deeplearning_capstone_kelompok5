@@ -1,11 +1,11 @@
 {
-  "val_acc": 0.25,
-  "val_f1_macro": 0.16,
-  "test_acc": 0.25,
-  "test_f1_macro": 0.2633333333333333,
-  "test_precision": 0.36666666666666664,
-  "test_recall": 0.2833333333333333,
-  "seed": 1,
+  "val_acc": 0.4375,
+  "val_f1_macro": 0.3555555555555555,
+  "test_acc": 0.4375,
+  "test_f1_macro": 0.2993939393939394,
+  "test_precision": 0.2833333333333333,
+  "test_recall": 0.3833333333333333,
+  "seed": 3,
   "model": "gru",
-  "durasi_detik": 4.09050440788269
+  "durasi_detik": 0.21862101554870605
 }

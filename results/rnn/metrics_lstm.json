@@ -1,11 +1,11 @@
 {
-  "val_acc": 0.1875,
-  "val_f1_macro": 0.1511111111111111,
-  "test_acc": 0.1875,
-  "test_f1_macro": 0.16666666666666666,
-  "test_precision": 0.18,
-  "test_recall": 0.18333333333333332,
-  "seed": 1,
+  "val_acc": 0.5625,
+  "val_f1_macro": 0.5476190476190476,
+  "test_acc": 0.5625,
+  "test_f1_macro": 0.5497435897435898,
+  "test_precision": 0.6888888888888889,
+  "test_recall": 0.55,
+  "seed": 3,
   "model": "lstm",
-  "durasi_detik": 1.794382095336914
+  "durasi_detik": 0.407470703125
 }
