@@ -1,6 +1,7 @@
 jalur,nama_model,val_f1_macro,val_acc,test_f1_macro,test_acc,n_params,waktu_latih_s,status
 random_forest,Random Forest,0.6133,0.625,0.6787878787878787,0.6875,,2.2,selesai
 cnn,1D-CNN,0.567619,0.625,0.246667,0.375,480389.0,0.4,selesai
-rnn,RNN (LSTM),,,,,,,belum ada
+gru,RNN (GRU),0.16,0.25,0.2633333333333333,0.25,,4.09050440788269,selesai
+lstm,RNN (LSTM),0.1511111111111111,0.1875,0.16666666666666666,0.1875,,1.794382095336914,selesai
 transformer,Transformer,,,,,,,belum ada
 ae,Autoencoder,,,,,,,belum ada
